@@ -1,0 +1,11 @@
+<form action="<%= authentication_endpoint %>" method="post">
+  <input type="hidden" name="scope" value="openidconnect" />
+  <input type="hidden" name="response_type" value="id_token" />
+  <input type="hidden" name="client_id" value="<%= client_id %>" />
+  <input type="hidden" name="redirect_uri" value="<%= redirect_uri %>" />
+  <input type="hidden" name="login_hint" value="<%= login_hint %>" />
+  <input type="hidden" name="state" value="<%= state %>" />
+  <input type="hidden" name="response_mode" value="form_post" />
+  <input type="hidden" name="nonce" value="<%= nonce %>" />
+  <input type="hidden" name="prompt" value="none" />
+</form>

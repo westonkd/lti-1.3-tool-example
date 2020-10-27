@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      APP_ENV: production

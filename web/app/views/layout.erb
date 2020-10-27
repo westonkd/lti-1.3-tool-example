@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <%= yield %>
+  <div id='root'></div>
+</body>
+<% if bundle %>
+  <script src="<%= bundle %>"></script>
+<% end %>
+</html>
