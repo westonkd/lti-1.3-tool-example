@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  web:
+    environment:
+      APP_ENV: developement
+      VIRTUAL_HOST: lti-1.3-tool-example.docker
+    volumes:
+        - .:/usr/src/app
+        - bundled-gems:/home/docker/.gem/ruby
+        - node-modules:/usr/src/app/node_modules
+    labels:
+        - "traefik.port=4567"
+
+volumes:
+    bundled-gems: {}
+    logs: {}
+    node-modules: {}
+    tmp: {}
+
+networks:
+    default:
+        external:
+            name: instructure-net
