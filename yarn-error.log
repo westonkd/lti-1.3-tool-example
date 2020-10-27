@@ -1,0 +1,52 @@
+Arguments: 
+  /home/CORP.INSTRUCTURE.COM/wdransfield/.nvm/versions/node/v10.15.2/bin/node /usr/share/yarn/bin/yarn.js add babl-core
+
+PATH: 
+  /home/CORP.INSTRUCTURE.COM/wdransfield/.rbenv/shims:/home/CORP.INSTRUCTURE.COM/wdransfield/.rbenv/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/CORP.INSTRUCTURE.COM/wdransfield/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/go/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/apache-pulsar-2.5.0/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/.yarn/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/.rbenv/shims:/home/CORP.INSTRUCTURE.COM/wdransfield/.rbenv/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/.nvm/versions/node/v10.15.2/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/CORP.INSTRUCTURE.COM/wdransfield/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/go/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/apache-pulsar-2.5.0/bin::/usr/share/rvm/gems/ruby-2.4.1/bin:/usr/share/rvm/gems/ruby-2.4.1@global/bin:/usr/share/rvm/rubies/ruby-2.4.1/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/CORP.INSTRUCTURE.COM/wdransfield/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/share/rvm/bin:/home/CORP.INSTRUCTURE.COM/wdransfield/.rvm/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/babl-core: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66058:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:129541:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:130513:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:130435:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1103:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+      "name": "lti-1_3-tool-example",
+      "version": "0.0.1",
+      "description": "A simple tool to demonstrate LTI 1.3",
+      "main": "index.js",
+      "scripts": {
+          
+      },
+      "author": "Weston Dransfield",
+      "license": "MIT",
+      "dependencies": {
+  
+      },
+      "devDependencies": {
+  
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
