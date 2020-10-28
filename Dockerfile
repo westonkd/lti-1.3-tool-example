@@ -15,10 +15,10 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
 
 COPY . $APP_HOME
 
-USER docker
-
 RUN bundle install
 RUN yarn install
 RUN yarn build
+
+USER docker
 
 ENTRYPOINT ["./entrypoint.sh"]

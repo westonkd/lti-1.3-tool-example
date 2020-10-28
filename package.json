@@ -7,9 +7,10 @@
         "dev-server": "yarn run webpack serve --content-base web/app/views --hot --inline",
         "lint": "eslint src/**/*.js --fix",
         "test": "mocha --compilers js:babel-core/register ./test/**/*.test.js --require ignore-styles",
-        "build":  "webpack --config webpack.prod.config.js",
+        "build": "webpack --config webpack.prod.config.js",
         "build:watch": "webpack --config webpack.prod.config.js --watch",
-        "dev": "yarn build:watch & ruby web/app.rb"
+        "dev": "yarn build:watch & bundle exec rerun ruby web/app.rb",
+        "pretty-fix": "yarn prettier --write ./src/**/*.js"
     },
     "author": "Weston Dransfield",
     "license": "MIT",
@@ -17,12 +18,15 @@
         "@babel/core": "^7.12.3",
         "@babel/preset-env": "^7.12.1",
         "@babel/preset-react": "^7.12.1",
+        "axios": "^0.21.0",
         "babel-loader": "^8.1.0",
         "css-loader": "^5.0.0",
         "node-sass": "^4.14.1",
+        "prettier": "^2.1.2",
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
+        "regenerator-runtime": "^0.13.7",
         "sass-loader": "^10.0.4",
         "style-loader": "^2.0.0",
         "webpack": "^5.3.0"
