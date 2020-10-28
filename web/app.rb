@@ -30,6 +30,7 @@ post '/login' do
 end
 
 post '/launch' do
+  # TODO: id token/state validation
   erb :launch, locals: { bundle: '/launch.js' }
 end
 

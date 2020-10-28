@@ -1,5 +1,5 @@
 import "regenerator-runtime/runtime.js";
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 
 export const ltiStoreStates = {
@@ -8,6 +8,26 @@ export const ltiStoreStates = {
   ERROR: "error",
   SUCCESS: "success"
 };
+
+// This is really just for demoing things
+export function storeNewData() {
+  sendLtiMessage(
+    "lti.Storage.Set",
+    {
+      highContrast: true,
+      lastPageSlug: "Demo123",
+      random:
+        Math.random()
+          .toString(36)
+          .substring(2, 15) +
+        Math.random()
+          .toString(36)
+          .substring(2, 15)
+    },
+    10000000000057 // TODO: Read from site config
+  );
+  refreshLtiStore()
+}
 
 export function sendLtiMessage(messageType, data, clientId) {
   console.log(`Sending message ${messageType}`);
@@ -41,7 +61,7 @@ export function useLtiStore() {
     window.addEventListener("message", responseHandler);
 
     // Request the LTI store from Canvas
-    refreshLtiStore()
+    refreshLtiStore();
 
     setStatus(ltiStoreStates.INITIALIZED);
 
@@ -57,7 +77,11 @@ export function useLtiStore() {
     const decryptToken = async () => {
       try {
         setStatus(ltiStoreStates.DECRYPTING);
-        const resp = await axios.post("/decrypt", { token }, { headers: { 'content-type': 'application/json' } });
+        const resp = await axios.post(
+          "/decrypt",
+          { token },
+          { headers: { "content-type": "application/json" } }
+        );
         setData(resp.data);
         setStatus(ltiStoreStates.SUCCESS);
       } catch (e) {
