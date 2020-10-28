@@ -33,6 +33,10 @@ post '/launch' do
   erb :launch, locals: { bundle: '/launch.js' }
 end
 
+# In a real app, this endpoint would need to be
+# behind authentication to make sure the app's
+# front-end is the only thing that can access
+# it.
 post '/decrypt' do
   request.body.rewind
   parsed_body = JSON.parse request.body.read

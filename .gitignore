@@ -1,4 +1,5 @@
 /node_modules
 *npm-debug.log
 /web/app/public/*.js
+/web/app/public/*.json
 docker-compose.override.yml
