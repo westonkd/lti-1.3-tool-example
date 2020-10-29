@@ -15,3 +15,10 @@ This tool uses Docker and Docker Compose.
 2. Change values in `web/config.yml` to match your platform and they client ID they issued the tool
 3. `docker-compose build`
 4. `docker-compose up`
+
+For instructions on installing an LTI 1.3 your chosen platform, please refer to that platform's documentation.
+
+Directions for installing in Canvas LMS can be found at https://canvas.instructure.com/doc/api/file.lti_dev_key_config.html
+
+## Notes
+* Because I use this tool to experiment with new LTI Advantage ideas, some features are not part of any LTI Advantage specification. These portions of code have been marked with an `@experimental` annotation.

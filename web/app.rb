@@ -14,6 +14,15 @@ set :root, 'web/app'
 # Allow embedding in an iframe
 set :protection, except: :frame_options
 
+# POST login
+# http://www.imsglobal.org/spec/security/v1p0/#step-1-third-party-initiated-login
+#
+# The first leg of the LTI 1.3 launch is a post request from the
+# tool provider to this endpoint
+#
+# The tool responds to this endpoint by kicking off the second leg
+# of the LTI 1.3 launch: the authentication request (See
+# http://www.imsglobal.org/spec/security/v1p0/#step-2-authentication-request)
 post '/login' do
   erb :login, locals: {
     bundle: '/login.js',
@@ -27,6 +36,12 @@ post '/login' do
   }
 end
 
+# POST launch
+#
+# http://www.imsglobal.org/spec/security/v1p0/#step-3-authentication-response
+#
+# The final leg of the LTI 1.3 launch, the authentication response,
+# is made by the platform to this endpoint.
 post '/launch' do
   # Is the LTI launch valid? See Services::LtiLaunch
   # For validation details.
@@ -44,12 +59,13 @@ post '/launch' do
   erb :launch, locals: { bundle: '/launch.js' }
 end
 
+# POST decrypt
+# @experimental
+#
 # In a real app, this endpoint would need to be
 # behind authentication to make sure the app's
 # front-end is the only thing that can access
 # it.
-#
-# @experimental
 post '/decrypt' do
   request.body.rewind
   parsed_body = JSON.parse request.body.read

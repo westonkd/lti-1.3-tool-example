@@ -9,26 +9,14 @@ export const ltiStoreStates = {
   SUCCESS: "success"
 };
 
-// This is really just for demoing things
-export function storeNewData() {
-  sendLtiMessage(
-    "lti.Storage.Set",
-    {
-      highContrast: true,
-      lastPageSlug: "Demo123",
-      random:
-        Math.random()
-          .toString(36)
-          .substring(2, 15) +
-        Math.random()
-          .toString(36)
-          .substring(2, 15)
-    },
-    10000000000057 // TODO: Read from site config
-  );
-  refreshLtiStore();
-}
-
+/*
+* sendLtiMessage
+*
+* @experimental
+*
+* Sends a postMessage to the parent window
+* with the specified arguments
+*/
 export function sendLtiMessage(messageType, data, clientId) {
   console.log(`Sending message ${messageType}`);
   window.parent.postMessage(
@@ -41,10 +29,30 @@ export function sendLtiMessage(messageType, data, clientId) {
   );
 }
 
+/*
+* refreshLtiStore
+*
+* @experimental
+*
+* Requests a refresh tool data from the
+* experimental LTI Storage Service
+*/
 export function refreshLtiStore() {
   sendLtiMessage("lti.Storage.Fetch");
 }
 
+/*
+* useLtiStore
+*
+* @experimental
+*
+* Provides two pieces of state:
+* 1. data - The data retrieved from the experimental
+*      LTI Store Service
+* 2. status - The status of fetching the data from
+*      the experimental LTI Store Service. See valid
+*      values at `ltiStoreStates`.
+*/
 export function useLtiStore() {
   const [token, setToken] = useState();
   const [status, setStatus] = useState();
@@ -93,4 +101,24 @@ export function useLtiStore() {
   }, [token]);
 
   return { status, data };
+}
+
+// This is really just for demoing things
+export function storeNewData() {
+  sendLtiMessage(
+    "lti.Storage.Set",
+    {
+      highContrast: true,
+      lastPageSlug: "Demo123",
+      random:
+        Math.random()
+          .toString(36)
+          .substring(2, 15) +
+        Math.random()
+          .toString(36)
+          .substring(2, 15)
+    },
+    10000000000057 // TODO: Read from site config
+  );
+  refreshLtiStore();
 }
