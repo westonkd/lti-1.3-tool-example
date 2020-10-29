@@ -1,7 +1,10 @@
 require 'sinatra'
-require "sinatra/config_file"
-require "sinatra/json"
-require "json/jwt"
+require 'sinatra/config_file'
+require 'sinatra/json'
+require 'json/jwt'
+
+require_relative 'services'
+require_relative 'providers'
 
 configure { set :server, :puma }
 config_file 'config.yml'
@@ -30,7 +33,19 @@ post '/login' do
 end
 
 post '/launch' do
-  # TODO: id token/state validation
+  # Is the LTI launch valid? See Services::LtiLaunch
+  # For validation details.
+  #
+  # Note that this validator does not check the
+  # "state" parameter.
+  lti_launch = Services::LtiLaunch.new(
+    params[:id_token],
+    settings.public_jwks_endpoint,
+    settings.client_id
+  )
+
+  halt 401 unless lti_launch.valid?
+
   erb :launch, locals: { bundle: '/launch.js' }
 end
 
@@ -47,8 +62,4 @@ post '/decrypt' do
   jwe.decrypt! private_key
 
   json token: JSON::JWT.decode(jwe.plain_text)
-end
-
-get '/test' do
-  SecureRandom.uuid
 end
