@@ -37,7 +37,6 @@ post '/login' do
 end
 
 # POST launch
-#
 # http://www.imsglobal.org/spec/security/v1p0/#step-3-authentication-response
 #
 # The final leg of the LTI 1.3 launch, the authentication response,
