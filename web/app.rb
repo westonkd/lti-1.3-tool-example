@@ -45,8 +45,8 @@ post '/launch' do
   # Is the LTI launch valid? See Services::LtiLaunch
   # For validation details.
   #
-  # Note that this validator does not check the
-  # "state" parameter.
+  # Note that this validator does not check the integrity
+  # "state" parameter. A real production tool should do so
   @lti_launch = Services::LtiLaunch.new(
     params[:id_token],
     settings.public_jwks_endpoint,
