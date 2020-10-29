@@ -14,11 +14,6 @@ set :root, 'web/app'
 # Allow embedding in an iframe
 set :protection, except: :frame_options
 
-# Routes
-get '/' do
-  erb :index, locals: { bundle: '/bundle.js' }
-end
-
 post '/login' do
   erb :login, locals: {
     bundle: '/login.js',
@@ -53,6 +48,8 @@ end
 # behind authentication to make sure the app's
 # front-end is the only thing that can access
 # it.
+#
+# @experimental
 post '/decrypt' do
   request.body.rewind
   parsed_body = JSON.parse request.body.read

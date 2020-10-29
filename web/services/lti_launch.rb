@@ -20,6 +20,10 @@ module Services
       @validation_errors.length == 0
     end
 
+    def [](key)
+      @decoded_jwt[key]
+    end
+
     private
 
     def validate!
