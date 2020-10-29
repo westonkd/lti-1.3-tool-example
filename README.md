@@ -12,5 +12,6 @@ If you are getting started with LTI 1.3 and want to learn the basics, `web/app.r
 This tool uses Docker and Docker Compose.
 
 1. Copy `docker-compose-copy.override.example.yml` to `docker-compose-copy.override.yml` and modify it to meet your needs
-2. `docker-compose build`
-3. `docker-compose up`
+2. Change values in `web/config.yml` to match your platform and they client ID they issued the tool
+3. `docker-compose build`
+4. `docker-compose up`
