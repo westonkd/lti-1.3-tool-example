@@ -16,7 +16,7 @@ This tool uses Docker and Docker Compose.
 3. `docker-compose build`
 4. `docker-compose up`
 
-For instructions on installing an LTI 1.3 your chosen platform, please refer to that platform's documentation.
+For instructions on installing an LTI 1.3 tool in your chosen platform, please refer to that platform's documentation.
 
 Directions for installing in Canvas LMS can be found at https://canvas.instructure.com/doc/api/file.lti_dev_key_config.html
 
