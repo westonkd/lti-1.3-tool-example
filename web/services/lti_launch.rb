@@ -24,6 +24,10 @@ module Services
       @decoded_jwt[key]
     end
 
+    def to_h
+      @decoded_jwt
+    end
+
     private
 
     def validate!

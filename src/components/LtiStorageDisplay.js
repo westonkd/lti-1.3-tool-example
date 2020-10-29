@@ -1,27 +1,22 @@
-import React, { useEffect } from "react";
-import { Row, Col, Input, PageHeader, Button } from "antd";
+import React from "react";
+import { Input, PageHeader, Button } from "antd";
 
 import "antd/dist/antd.css";
 
-import {
-  ltiStoreStates,
-  useLtiStore,
-  storeNewData
-} from "../utils/ltiEvents";
+import { useLtiStore, storeNewData } from "../utils/ltiEvents";
 
-const LtiStorageDisplay = ({ property }) => {
+const LtiStorageDisplay = () => {
   const { status, data } = useLtiStore();
 
   return (
     <>
       <PageHeader
-        className="site-page-header"
-        title="LTI Storage Service Demo"
+        title="LTI Storage Service Data"
         subTitle={`Status: ${status}`}
         extra={[
           <Button key="1" onClick={storeNewData}>
             Store New Data
-              </Button>
+          </Button>
         ]}
       />
       <Input.TextArea

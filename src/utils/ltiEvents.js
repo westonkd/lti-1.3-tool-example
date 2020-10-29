@@ -26,7 +26,7 @@ export function storeNewData() {
     },
     10000000000057 // TODO: Read from site config
   );
-  refreshLtiStore()
+  refreshLtiStore();
 }
 
 export function sendLtiMessage(messageType, data, clientId) {

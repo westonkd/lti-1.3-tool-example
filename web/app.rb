@@ -33,13 +33,13 @@ post '/launch' do
   #
   # Note that this validator does not check the
   # "state" parameter.
-  lti_launch = Services::LtiLaunch.new(
+  @lti_launch = Services::LtiLaunch.new(
     params[:id_token],
     settings.public_jwks_endpoint,
     settings.client_id
   )
 
-  halt 401 unless lti_launch.valid?
+  halt 401 unless @lti_launch.valid?
 
   erb :launch, locals: { bundle: '/launch.js' }
 end
