@@ -14,6 +14,11 @@ set :root, 'web/app'
 # Allow embedding in an iframe
 set :protection, except: :frame_options
 
+get '/public_key' do
+  public_key = JSON::JWK.new(settings.keys['public'])
+  json public_key
+end
+
 # POST login
 # http://www.imsglobal.org/spec/security/v1p0/#step-1-third-party-initiated-login
 #

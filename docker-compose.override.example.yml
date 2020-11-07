@@ -17,8 +17,3 @@ volumes:
     logs: {}
     node-modules: {}
     tmp: {}
-
-networks:
-    default:
-        external:
-            name: instructure-net

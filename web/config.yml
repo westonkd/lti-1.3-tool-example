@@ -34,13 +34,13 @@ keys:
     qi: n6hmEWOvHwegv0oMGsp7i7kZrxsIkRf4USjtf3-CB7cnb7dM4qDMo2gzkrqJAfve9GrO4VQquqZx_oxQAk99_B5EfWso2qKUPWMN8kt0zEq6KEzrw2C_Q4F9DuTDbMv715vsUi0kRnwejlwT-0vnEbvtfvAOeQQ9rTz7AmjnDtc
 
 # The client ID issued to our tool by the platform
-client_id: 10000000000057
+client_id: 10000000000001
 
 # The endpoint to which the tool should make the authentication
 # request (the second leg in the LTI 1.3 launch)
-authentication_endpoint: http://shard1.web.canvas-lms.docker/api/lti/authorize_redirect
+authentication_endpoint: http://canvas.docker/api/lti/authorize_redirect
 
 # The endpoint the platform's public JWKs are available at. This keyset
 # is used to verify the signature of id_tokens in the final leg of
 # the LTI 1.3 launch
-public_jwks_endpoint: http://172.26.0.5:80/api/lti/security/jwks
+public_jwks_endpoint: http://canvas.docker/api/lti/security/jwks

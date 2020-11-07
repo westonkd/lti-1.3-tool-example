@@ -20,5 +20,12 @@ For instructions on installing an LTI 1.3 tool in your chosen platform, please r
 
 Directions for installing in Canvas LMS can be found at https://canvas.instructure.com/doc/api/file.lti_dev_key_config.html
 
+## Configuration
+**Redirect URI:** http://example-tool.docker/launch
+
+**OpenID Connect Initiation Url:** http://example-tool.docker/login
+
+**Public JWK URL:** http://example-tool.docker/public_key
+
 ## Notes
 * Because I use this tool to experiment with new LTI Advantage ideas, some features are not part of any LTI Advantage specification. These portions of code have been marked with an `@experimental` annotation.
